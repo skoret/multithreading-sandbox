@@ -7,7 +7,9 @@
 Предустановка:
 ```shell
 sudo apt install build-essential cmake
+sudo apt-get install libboost-all-dev
 ```
+
 Запуск
 ```shell
 cd <project_dir>
