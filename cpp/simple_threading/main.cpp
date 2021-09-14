@@ -49,7 +49,7 @@ void with_clock(T function, std::string caption) {
     function();
     auto t2 = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> ms_double = t2 - t1;
-    std::cout << "Milliseconds: " << ms_double.count() << std::endl;
+    std::cout << "Seconds: " << ms_double.count() << std::endl;
 }
 
 int main() {
