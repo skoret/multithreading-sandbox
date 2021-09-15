@@ -1,4 +1,4 @@
-#include "thread_pool.hpp"
+#include "../common/thread_pool.hpp"
 
 int main() {
     thread_pool pool(10);
