@@ -1,20 +1,10 @@
 package org.example
 
-import java.time.Clock
-import java.time.LocalTime
-import java.time.ZoneOffset
 import java.util.UUID.randomUUID
 import java.util.concurrent.Callable
-import java.util.concurrent.CompletableFuture
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 import kotlin.concurrent.thread
-
-val runnable = {
-    `thread started`()
-    `thread sleep`(1000)
-    `thread finished`()
-}
 
 fun example1() {
     val thread1 = Thread(runnable)
@@ -80,6 +70,7 @@ fun example3() {
 }
 
 fun example4() {
+    val executor = Executors.newScheduledThreadPool(2)
     val task1 = {
         log("task#1 started and sleep for 400 ms")
         Thread.sleep(400)
@@ -92,7 +83,6 @@ fun example4() {
         Thread.sleep(ms)
         log("task#2 finished")
     }
-    val executor = Executors.newScheduledThreadPool(2)
 
     log("schedule task#1 at fixed rate 500 ms")
     executor.scheduleAtFixedRate(task1, 0, 500, TimeUnit.MILLISECONDS)
@@ -116,12 +106,3 @@ fun main() {
 
     example4()
 }
-
-val utc: Clock = Clock.systemUTC()
-fun time(): LocalTime = LocalTime.ofInstant(utc.instant(), ZoneOffset.UTC)
-
-fun log(message: String) = println("[${time()}] [${Thread.currentThread().name}] $message")
-fun `thread started`() = log("started")
-fun `thread sleep`(ms: Long = 500) { log("sleep for $ms ms"); Thread.sleep(ms) }
-fun `thread finished`() = log("finished")
-fun delimiter() = println("\n----------------------\n")
