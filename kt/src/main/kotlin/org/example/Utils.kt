@@ -24,7 +24,7 @@ fun `thread sleep`(ms: Long = 500) { log("sleep for $ms ms"); Thread.sleep(ms) }
 fun `thread finished`() = log("finished")
 fun delimiter() = println("\n----------------------\n")
 
-const val log = false
+var log = false
 var `threads-pool` = 6
 var `threads-num` = 100
 var `increments-num` = 100_000
