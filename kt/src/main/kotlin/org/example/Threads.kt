@@ -35,8 +35,8 @@ fun example2() {
 
     log("run task in executor's pool")
     executor.execute(runnable)
+    log("wait a while for task execution")
     `thread sleep`(1500)
-    log("finish waiting")
     executor.shutdown()
 }
 

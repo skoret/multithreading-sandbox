@@ -20,7 +20,7 @@ fun time(): LocalTime = LocalTime.ofInstant(utc.instant(), ZoneOffset.UTC)
 
 fun log(message: String) = println("[${time()}] [${Thread.currentThread().name}] $message")
 fun `thread started`() = log("started")
-fun `thread sleep`(ms: Long = 500) { log("sleep for $ms ms"); Thread.sleep(ms) }
+fun `thread sleep`(ms: Long = 500) { log("sleep for $ms ms"); Thread.sleep(ms); log("waked up") }
 fun `thread finished`() = log("finished")
 fun delimiter() = println("\n----------------------\n")
 
