@@ -9,8 +9,6 @@ class Bank {
 }
 
 fun main() {
-    log = true
-
     val alice = Account()
     val bob = Account()
     val amount = Any()
